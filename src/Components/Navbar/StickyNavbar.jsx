@@ -8,6 +8,7 @@ import {
   Badge,
   Card,
 } from "@material-tailwind/react";
+import { DialogWithForm } from "./DialogWithForm";
 
 export function StickyNavbar() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -20,30 +21,47 @@ export function StickyNavbar() {
   }, []);
 
   const navList = (
-    <ul className="mt-2 mb-4 px-5 py-1 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 hover:shadow-2xl text-white bg-black border-none rounded-lg">
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="#" className="flex items-center text-xl">
-          Phones
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="#" className="flex items-center text-xl">
-          Laptops
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="#" className="flex items-center text-xl">
-          TVs
-        </a>
-      </Typography>
-      <Typography as="li" variant="small" className="p-1 font-normal">
-        <a href="#" className="flex items-center text-xl ">
-          <Badge color="red">
-            <Button className="text-lg bg-white" variant="text" color="blue">Cart</Button>
-          </Badge>
-        </a>
-      </Typography>
-    </ul>
+    <>
+      <ul className="mt-2 mb-4 px-5 py-1 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 hover:shadow-2xl text-white bg-black border-none rounded-lg">
+        <Typography as="li" variant="small" className="p-1 font-sans">
+          <a href="#" className="flex items-center text-xl">
+            Phones
+          </a>
+        </Typography>
+        <Typography as="li" variant="small" className="p-1 font-sans">
+          <a href="#" className="flex items-center text-xl">
+            Laptops
+          </a>
+        </Typography>
+        <Typography as="li" variant="small" className="p-1 font-sans">
+          <a href="#" className="flex items-center text-xl">
+            TVs
+          </a>
+        </Typography>
+        <Typography as="li" variant="small" className="p-1 font-sans">
+          <a href="#" className="flex items-center text-lg ">
+            <Badge color="red">
+              <svg
+                class="w-6 h-6 text-blue-400 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"
+                />
+              </svg>
+            </Badge>
+          </a>
+        </Typography>
+      </ul>
+      
+    </>
   );
 
   return (
@@ -53,28 +71,15 @@ export function StickyNavbar() {
           <Typography
             as="a"
             href="#"
-            className="mr-4 cursor-pointer py-1.5 font-extrabold text-2xl"
+            className="mr-4 cursor-pointer py-1.5 font-normal font-sans text-2xl"
           >
-            iShop
+            The eShop
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
 
             <div className="flex items-center gap-x-1">
-              <Button
-                variant="text"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span className="text-lg">Log In</span>
-              </Button>
-              <Button
-                variant="gradient"
-                size="sm"
-                className="hidden lg:inline-block"
-              >
-                <span className="text-lg">Sign in</span>
-              </Button>
+              <DialogWithForm />
             </div>
             <IconButton
               variant="text"
@@ -115,17 +120,7 @@ export function StickyNavbar() {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
-          {navList}
-          <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
-            </Button>
-          </div>
-        </MobileNav>
+        <MobileNav open={openNav}>{navList}</MobileNav>
       </Navbar>
     </div>
   );

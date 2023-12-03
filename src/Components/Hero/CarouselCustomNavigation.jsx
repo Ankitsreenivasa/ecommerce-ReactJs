@@ -2,7 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 
 export function CarouselCustomNavigation() {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center bg-black">
       <Carousel
         className="my-14 mx-50 w-4/5 h-1/2"
         navigation={({ setActiveIndex, activeIndex, length }) => (
@@ -20,7 +20,7 @@ export function CarouselCustomNavigation() {
         )}
       >
         <img
-          src="src/Components/Assets/iPhone/ip15.jpg"
+          src="src/Components/Assets/iPhone/maxresdefault.jpg"
           alt="image 1"
           className="h-full w-full object-cover"
         />
@@ -31,7 +31,7 @@ export function CarouselCustomNavigation() {
         />
 
         <img
-          src="src/Components/Assets/iPhone/ip15n.png"
+          src="src/Components/Assets/TVs/apple-tv__e7aqjl2rqzau_og.png"
           alt="image 1"
           className="h-full w-full object-cover"
         />
